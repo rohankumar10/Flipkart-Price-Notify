@@ -65,7 +65,7 @@ def send_mail():
     server.quit()
 
 
-# Now lets check the price after 5 min -----------------------------------------------
+# Now lets check the price after 1 Hour -----------------------------------------------
 count = 0
 while True:
     count += 1
