@@ -19,7 +19,7 @@ def check_price():
     print(price)
     main_price = price[30:35]
     print(main_price)
-    # LETS MAKE IT AN INTEGER---------------------------------------------------------------
+    # LETS MAKE IT AN INTEGER
     l = len(main_price)
     if l <= 4:
         main_price = price[30:35]
@@ -30,13 +30,13 @@ def check_price():
         main_price = int(pf)
 
     price_now = int(main_price)
-    # VARIABLES FOR SENDING MAIL---------------------------------------
+    # VARIABLES FOR SENDING MAIL
     title1 = str(title)
     main_price1 = main_price
     print("NAME : " + title1)
     print("CURRENT PRICE : " + str(main_price1))
     print("DESIRED PRICE : " + str(dp))
-    # FUNCTION TO CHECK THE PRICE-------------------------------------------------------
+    # FUNCTION TO CHECK THE PRICE
 
     if price_now <= dp:
         send_mail()
@@ -44,12 +44,14 @@ def check_price():
         print("Rechecking... Last checked at " + str(datetime.now()))
 
 
-# Lets send the mail-----------------------------------------------------------------
+# Lets send the mail
+# We will use SMTP Protocol to send the email
 def send_mail():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.ehlo()
+    # Put in your Email and Password
     server.login('rk@gmail.com', 'Password')
     subject = "Price of Item has fallen down below Rs. " + str(dp)
     body = "Hey RK! \n The price of Item on AMAZON has fallen down below Rs." + str(
@@ -65,7 +67,7 @@ def send_mail():
     server.quit()
 
 
-# Now lets check the price after 1 Hour -----------------------------------------------
+# Now lets check the price after 1 Hour 
 count = 0
 while True:
     count += 1
